@@ -99,7 +99,11 @@
 <script>
   "use strict";
   // code here for above problem
+  var popUp = document.getElementById("popup-alert-button");
 
+  popUp.addEventListener("click", function() {
+    alert("Hello Hackbright!");
+  })
 
 </script>
 
@@ -120,7 +124,19 @@
 <script>
   "use strict";
   // code here for above-problem
+  var message = document.getElementById("change-hello-to-goodbye-button");
 
+  var getText = document.getElementById("message-to-change")
+
+
+  message.addEventListener("click", function() {
+    if (getText.innerHTML === 'hello') {
+      getText.innerHTML = "goodbye";
+    }
+    else {
+      getText.innerHTML = "hello";
+    }
+  });
 
 </script>
 
@@ -152,6 +168,15 @@
 <script>
   "use strict";
   // code here for above problem
+  var preventSubmission = document.getElementById("prevent-form-submission-form")
+
+  preventSubmission.addEventListener("click", function(evt) {
+    evt.preventDefault()
+
+    alert("Hello Balloonicorn!");
+
+  });
+
 </script>
 
 <div class="hint">
@@ -185,20 +210,20 @@
 
 //  Here's a stub of a function you can use!
 
-//  function reverseString() {
-//    var msg = "Porcupines are cute";
-//
-//    // do some stuff here to reverse that string into a new variable
-//    var newMsg = "This should be the reversed string";
-//
-//    alert(newMsg);
-//  }
+ function reverseString() {
+   var msg = "Porcupines are cute";
+
+   // do some stuff here to reverse that string into a new variable
+   var newMsg = msg.split().reverse().join();
+
+   alert(newMsg);
+ }
 
 // Here's a stub of event stuff you could use
 //
 
-//  var button = document.getElementById('reverse-string-button');
-//  button.addEventListener('click', reverseString);
+ var button = document.getElementById('reverse-string-button');
+ button.addEventListener('click', reverseString);
 </script>
 
 
@@ -248,6 +273,7 @@
   <img src="https://s-media-cache-ak0.pinimg.com/236x/d3/e9/fc/d3e9fc222c9bd0d12e0ff126acf7df00.jpg"
        alt="Adorbz" id="kittenz-rule">
 </fieldset>
+
 
 <script>
   "use strict";
