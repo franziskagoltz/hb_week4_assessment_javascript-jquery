@@ -246,9 +246,15 @@
   <input type="button" class="tricky-to-find" value="Pop-Up Please!">
 </fieldset>
 
+<script src="https://code.jquery.com/jquery.js"></script>
 <script>
   "use strict";
   // code here for above problem
+
+  $(".tricky-to-find").on("click", function(){
+    alert("Detective Balloonicorn found it!");
+  });
+
 </script>
 
 <div class="hint">
@@ -278,6 +284,12 @@
 <script>
   "use strict";
   // put your code here
+
+  $("img#kittenz-rule").dblclick(
+    function() {
+      $("img#kittenz-rule").attr("src", "http://www.mediastorehouse.com/p/172/dog-st-bernard-mountain-rescue-dog-wearing-10501224.jpg");
+    });
+
 </script>
 
 <div class="hint">
@@ -312,6 +324,11 @@
 <script>
   "use strict";
   // put your code here
+  $("#make-a-porcupine").on("click", function() {
+    setTimeout(
+        $("img#cute-porcupine-image").fadeIn(3000), 1000);
+    });
+
 </script>
 
 <div class="hint">
@@ -356,6 +373,8 @@
 <script>
   "use strict";
   // put your code here
+
+
 </script>
 
 <div class="hint">
