@@ -375,6 +375,18 @@
   // put your code here
 
 
+
+  // var sameFaveFood = function(evt) {
+  //   evt.preventDefault;
+  //   $("#agreeable-text").html("I like " + faveFood + " too!");
+  // };
+
+  $("#agreeable-form").on("submit", function(evt) {
+    var faveFood = $("#favorite-food-input").val();
+    $("#agreeable-text").html("I like " + faveFood + " too!");
+    return false;
+  });
+
 </script>
 
 <div class="hint">
@@ -405,6 +417,34 @@
 <script>
   "use strict";
   // put your code here
+
+
+  var playGame = function() {
+
+    var randomNum = Math.round(Math.random()*100);
+
+    console.log(randomNum);
+
+    var userGuess = Number(prompt("What's your guess?"));
+
+    while (userGuess != randomNum) {
+
+      if (userGuess > randomNum) {
+        alert("Your guess was too high");
+        userGuess = Number(prompt("What's your new guess?"));
+      }
+      else if (userGuess < randomNum) {
+        alert("Your guess was too low");
+        userGuess = Number(prompt("What's your new guess?"));
+      }
+    }
+  alert("Congratulations - you win!");
+  };
+
+$("#play-guessing-game").on("click", playGame);
+
+
+
 </script>
 
 <div class="hint">
@@ -445,7 +485,39 @@
 
 <script>
   "use strict";
-  // put your code here
+
+
+function playGame2() {
+
+  $("#play-guessing-game-2").prop( "disabled", true );
+  $("#number-guessed").prop( "disabled", false );
+  $("#try-this-number").prop( "disabled", false );
+  
+  var randomNum = Math.round(Math.random()*100);
+  console.log(randomNum);
+
+  var evaluateGuess = function(evt) {
+
+    evt.preventDefault();
+
+    var userGuess = Number($("#number-guessed").val());
+      if (userGuess > randomNum) {
+        $("#number-guessing-msg").html("Your guess was too high. Guess again!");
+      }
+      else if (userGuess < randomNum) {
+        $("#number-guessing-msg").html("Your guess was too low. Guess again!");
+      }
+      else if (userGuess === randomNum) {
+        $("#number-guessing-msg").html("Congratulations - you win!");
+      }
+  };
+  $("#try-this-number").on("click", evaluateGuess);
+};
+
+
+  $("#play-guessing-game-2").on("click", playGame2);
+
+
 </script>
 
 
@@ -479,6 +551,47 @@
     var PRIME_COLORS = ['orange', 'midnightblue', 'darkgoldenrod', 'green', 'purple'];
 
   // put the rest of your code here
+
+
+  function isPrime (number) {
+
+    for (var i = 2; i < number; i++) {
+      if (number % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+
+  function getFivePrimes () {
+
+    var primes = [];
+
+    for (var i = 2; i < 12; i++) {
+      if (isPrime(i) === true) {
+        primes.push(i);
+      }
+    }
+    return primes;
+  }
+
+
+  function makeBoxes () {
+
+    var primes = getFivePrimes();
+
+    console.log(primes);
+
+    for (var i = 0; i < 5; i ++) {
+
+      $("#prime-box-area").append("<div class='prime-box' style='background-color: " + PRIME_COLORS[i] + "'>" + primes[i] + " </div>");
+      }
+
+  }
+
+  $("#make-prime-boxes").on("click", makeBoxes);
+
 </script>
 
 
